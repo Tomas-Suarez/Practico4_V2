@@ -2,6 +2,8 @@
 package practico4_v2;
 
 import java.util.HashSet;
+import practico4_v2.Alumno;
+import practico4_v2.Materia;
 
 public abstract class Datos {
     
