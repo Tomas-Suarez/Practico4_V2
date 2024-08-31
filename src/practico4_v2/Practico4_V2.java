@@ -28,6 +28,7 @@ public class Practico4_V2 {
         System.out.println("López está inscripto en " + a1.cantidadMaterias() + " materias.");
         System.out.println("Martínez está inscripto en " + a2.cantidadMaterias() + " materias.");
         Datos.sample();
+        
         Menu_Principal app = new Menu_Principal();
         app.setVisible(true);
         

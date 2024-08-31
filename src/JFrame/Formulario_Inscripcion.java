@@ -1,13 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
+
 package JFrame;
 
-/**
- *
- * @author Tomi
- */
+import javax.swing.JOptionPane;
+import practico4_v2.Alumno;
+import practico4_v2.Datos;
+import practico4_v2.Materia;
+
 public class Formulario_Inscripcion extends javax.swing.JInternalFrame {
 
     /**
@@ -15,6 +13,8 @@ public class Formulario_Inscripcion extends javax.swing.JInternalFrame {
      */
     public Formulario_Inscripcion() {
         initComponents();
+        actualizarComboBoxAlumno();
+        actualizarComboBoxMaterias();
     }
 
     /**
@@ -27,10 +27,10 @@ public class Formulario_Inscripcion extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jbMaterias = new javax.swing.JComboBox<>();
+        jbExit = new javax.swing.JButton();
+        jbEnroll = new javax.swing.JButton();
+        jbAlumnos = new javax.swing.JComboBox<>();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel1.setText("Formulario de Inscripción");
@@ -39,11 +39,25 @@ public class Formulario_Inscripcion extends javax.swing.JInternalFrame {
 
         jLabel3.setText("ELIJA UN ALUMNO:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jbMaterias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbMateriasActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("Salir");
+        jbExit.setText("Salir");
+        jbExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbExitActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Inscribir");
+        jbEnroll.setText("Inscribir");
+        jbEnroll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEnrollActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -56,19 +70,16 @@ public class Formulario_Inscripcion extends javax.swing.JInternalFrame {
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(94, 94, 94))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(31, Short.MAX_VALUE))))
+                    .addComponent(jbMaterias, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbAlumnos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(94, 94, 94))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(100, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(jbEnroll)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
+                        .addComponent(jbExit)
                         .addGap(27, 27, 27))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -81,30 +92,70 @@ public class Formulario_Inscripcion extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jbExit)
+                    .addComponent(jbEnroll))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMateriasActionPerformed
+
+    }//GEN-LAST:event_jbMateriasActionPerformed
+
+    private void jbEnrollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEnrollActionPerformed
+        Alumno a = (Alumno) jbAlumnos.getSelectedItem();
+        Materia m = (Materia) jbMaterias.getSelectedItem();
+        String msg;
+        if (!a.getMaterias().contains(m)) {
+            a.agregarMateria(m);
+            msg = "%s inscripto a %s";
+        } else {
+            msg = "%s ya se encuentra inscripto %s";
+        }
+        JOptionPane.showMessageDialog(this, msg.formatted(a, m));    }//GEN-LAST:event_jbEnrollActionPerformed
+
+    private void jbExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExitActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jbExitActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JComboBox<Alumno> jbAlumnos;
+    private javax.swing.JButton jbEnroll;
+    private javax.swing.JButton jbExit;
+    private javax.swing.JComboBox<Materia> jbMaterias;
     // End of variables declaration//GEN-END:variables
+    private void actualizarComboBoxAlumno() {
+        if (Datos.alumnos != null) {
+            jbMaterias.removeAllItems(); // Limpia los elementos anteriores
+            for (Alumno alumno : Datos.alumnos) {
+                jbAlumnos.addItem(alumno);
+            }
+        }
+    }
+
+    private void actualizarComboBoxMaterias() {
+        if (Datos.alumnos != null) {
+            jbMaterias.removeAllItems(); // Limpia los elementos anteriores
+            for (Materia materia : Datos.materias) {
+                jbMaterias.addItem(materia);
+            }
+        }
+    }
+    
+    
+    
 }
