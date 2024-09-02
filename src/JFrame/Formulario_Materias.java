@@ -5,7 +5,6 @@
 package JFrame;
 
 import javax.swing.JOptionPane;
-import practico4_v2.Datos;
 import practico4_v2.Materia;
 
 /**
@@ -139,7 +138,7 @@ public class Formulario_Materias extends javax.swing.JInternalFrame {
         
         Materia materia = new Materia(idMateria, nombreLegajo, year);
         
-        if(Datos.materias.add(materia)){
+        if(Colegio.materias.add(materia)){
             JOptionPane.showMessageDialog(this, "La materia fue cargada con exito!");
         }else{
             JOptionPane.showMessageDialog(this, "No es posible cargar la materia, ya se encuentra en el sistema!");

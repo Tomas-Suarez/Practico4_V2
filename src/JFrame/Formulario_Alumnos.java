@@ -6,7 +6,6 @@ package JFrame;
 
 import javax.swing.JOptionPane;
 import practico4_v2.Alumno;
-import practico4_v2.Datos;
 
 /**
  *
@@ -136,7 +135,7 @@ public class Formulario_Alumnos extends javax.swing.JInternalFrame {
         String Nombre = jtNombre.getText();
         //Creamos un objeto alumno y la paso al HastSet
         Alumno estudiante = new Alumno(Legajo, Apellido, Nombre);
-        if(Datos.alumnos.add(estudiante)){
+        if(Colegio.alumnos.add(estudiante)){
             JOptionPane.showMessageDialog(this, "El alumno fue cargado con exito!");
         }else{
             JOptionPane.showMessageDialog(this, "No es posible cargar el alumno, ya se encuentra en el sistema!");

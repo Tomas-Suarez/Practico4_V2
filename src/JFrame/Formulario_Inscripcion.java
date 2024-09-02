@@ -3,7 +3,6 @@ package JFrame;
 
 import javax.swing.JOptionPane;
 import practico4_v2.Alumno;
-import practico4_v2.Datos;
 import practico4_v2.Materia;
 
 public class Formulario_Inscripcion extends javax.swing.JInternalFrame {
@@ -139,18 +138,18 @@ public class Formulario_Inscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<Materia> jbMaterias;
     // End of variables declaration//GEN-END:variables
     private void actualizarComboBoxAlumno() {
-        if (Datos.alumnos != null) {
+        if (Colegio.alumnos != null) {
             jbMaterias.removeAllItems(); // Limpia los elementos anteriores
-            for (Alumno alumno : Datos.alumnos) {
+            for (Alumno alumno : Colegio.alumnos) {
                 jbAlumnos.addItem(alumno);
             }
         }
     }
 
     private void actualizarComboBoxMaterias() {
-        if (Datos.alumnos != null) {
+        if (Colegio.alumnos != null) {
             jbMaterias.removeAllItems(); // Limpia los elementos anteriores
-            for (Materia materia : Datos.materias) {
+            for (Materia materia : Colegio.materias) {
                 jbMaterias.addItem(materia);
             }
         }
