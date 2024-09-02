@@ -1,12 +1,15 @@
 
 package JFrame;
 
+import practico4_v2.Datos;
+
 public class Menu_Principal extends javax.swing.JFrame {
 
     /**
      * Creates new form Menu_Principal
      */
     public Menu_Principal() {
+        Datos.sample();
         initComponents();
         
     }
